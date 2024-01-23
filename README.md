@@ -21,6 +21,22 @@ COmo o projeto não terá a utilização de Servidores ou de Banco de daods [SQL
 ... em planejamento
 
 ## Praticas de Desenvolvimento
-... em planejamento
+Toda vez que editar o codigo, usa a pratica de "Pull" com o versionamento, (que seria pegar as alterações do repositorio remoto para o repositório local do seu computador)
+ - Clique no projeto com o botão direito do Mouse e vai até Team
+ - Na sequencia, executa a função a função Pull
+
+Ou se preferir clique no botão direito no repositorio e clica na funçã de Pull
+ - adicione as modificações ao indicie (uma area temporarea que prepara o envio das alterações pelo commit). Clique no projeto com o botão direito do Mouse e vai até Team
+ - Na sequencia, executa a função "Add to index"
+ - Clique no projeto com o botão direito do Mouse e vai até Team
+ - Execute a função de commit para salvar as alterações pro repositrio local
+ - perto do terminal, acesse a janela "Git starting" e coloque sua mensagem de commit
+ - dps disso aperte em commit abaixo do TextField da "message commit"
+
+Após a modificação do repositorio local, hora de mandar para o repositorio remoto
+- Clique no projeto com o botão direito do Mouse e vai até Team
+ - Na sequencia, vai em "Remote" e excute a função Push
+ - aperta em Next, dps selecione a opção "All branchs", dps finaliza
+
 
 
