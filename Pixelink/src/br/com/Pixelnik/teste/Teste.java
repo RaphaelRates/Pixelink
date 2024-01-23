@@ -3,6 +3,8 @@ package br.com.Pixelnik.teste;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import java.awt.BorderLayout;
 
 public class Teste {
 
@@ -36,7 +38,7 @@ public class Teste {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 997, 380);
+		frame.setBounds(100, 100, 1920, 1080);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
