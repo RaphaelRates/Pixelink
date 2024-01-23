@@ -18,7 +18,9 @@ OVersionamento do projeto foi executado com a utilização do [Git](https://git-
 COmo o projeto não terá a utilização de Servidores ou de Banco de daods [SQL](https://www.oracle.com/br/database/technologies/appdev/sql.html)/[MongoDB](https://www.mongodb.com/pt-br), será abordado o gerenciamento de informações por arquivos CSV.
 
 ## Como contribuir
+... em planejamento
 
-##Praticas de Desenvolvimento
+## Praticas de Desenvolvimento
+... em planejamento
 
 
