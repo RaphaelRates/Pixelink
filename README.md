@@ -15,4 +15,10 @@ A interface feita para a construção do software foi usando o [Swing](https://d
 OVersionamento do projeto foi executado com a utilização do [Git](https://git-scm.com) ,⚠️ **Espeficiamente o  [EGit](https://eclipse.dev/egit/)**
 
 ### Banco de dados
-COmo o projeto não terá a utilização de Servidores ou de Banco de daods [SQL](https://www.oracle.com/br/database/technologies/appdev/sql.html)/[MongoDB](https://www.mongodb.com/pt-br), será abordado o gerenciamento de infirmações por arquivos CSV.
+COmo o projeto não terá a utilização de Servidores ou de Banco de daods [SQL](https://www.oracle.com/br/database/technologies/appdev/sql.html)/[MongoDB](https://www.mongodb.com/pt-br), será abordado o gerenciamento de informações por arquivos CSV.
+
+## Como contribuir
+
+##Praticas de Desenvolvimento
+
+
