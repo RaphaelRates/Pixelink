@@ -27,7 +27,11 @@ Primeiramente tenha a IDE [Eclipse](https://eclipseide.org) baixada no seu Pc e 
 ```bash
 https://github.com/RaphaelRates/Pixelink
 ```
- - com isso coloque 
+ - com isso coloque sua autenticação com nome de usuario e sua senha token, apertando next em seguida
+ - depois defina o nome padrão da branch como main (⚠️ pode estar como master como padrão do eclipse, então certifique-se de configurar como "main" a branch principal para não causar conflito).
+ - Importa o projeto para a sua IDE, clicando com o botã direito no repositório
+
+**"PRONTO AGORA MÂO NA MASSA"**
 
 
 ## Praticas de Desenvolvimento
