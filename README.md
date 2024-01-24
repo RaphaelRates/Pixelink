@@ -23,6 +23,11 @@ Primeiramente tenha a IDE [Eclipse](https://eclipseide.org) baixada no seu Pc e 
  - na opção **Window**, vai em **Show View** e depois em clique na opção **Other**
  - você verá muitas pastas, a que interessa é a chamada **Git**, nela você clicará em Git Repositories e mostrará a tela de Versionamento de repositórios
  - Clique em "clone a Git repository"
+ - Agr preenche o formulario do repositorio com essas chave:
+```bash
+https://github.com/RaphaelRates/Pixelink
+```
+
 
 ## Praticas de Desenvolvimento
 Toda vez que editar o codigo, usa a pratica de "Pull" com o versionamento, (que seria pegar as alterações do repositorio remoto para o repositório local do seu computador)
