@@ -27,6 +27,7 @@ Primeiramente tenha a IDE [Eclipse](https://eclipseide.org) baixada no seu Pc e 
 ```bash
 https://github.com/RaphaelRates/Pixelink
 ```
+ - com isso coloque 
 
 
 ## Praticas de Desenvolvimento
