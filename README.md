@@ -18,7 +18,11 @@ OVersionamento do projeto foi executado com a utilização do [Git](https://git-
 COmo o projeto não terá a utilização de Servidores ou de Banco de daods [SQL](https://www.oracle.com/br/database/technologies/appdev/sql.html)/[MongoDB](https://www.mongodb.com/pt-br), será abordado o gerenciamento de informações por arquivos CSV.
 
 ## Como contribuir
-... em planejamento
+Primeiramente tenha a IDE [Eclipse](https://eclipseide.org) baixada no seu Pc e siga essas instruções a seguir:
+
+ - na opção **Window**, vai em **Show View** e depois em clique na opção **Other**
+ - você verá muitas pastas, a que interessa é a chamada **Git**, nela você clicará em Git Repositories e mostrará a tela de Versionamento de repositórios
+ - Clique em "clone a Git repository"
 
 ## Praticas de Desenvolvimento
 Toda vez que editar o codigo, usa a pratica de "Pull" com o versionamento, (que seria pegar as alterações do repositorio remoto para o repositório local do seu computador)
@@ -36,7 +40,7 @@ Ou se preferir clique no botão direito no repositorio e clica na funçã de Pul
 Após a modificação do repositorio local, hora de mandar para o repositorio remoto
 - Clique no projeto com o botão direito do Mouse e vai até Team
  - Na sequencia, vai em "Remote" e excute a função Push
- - aperta em Next, dps selecione a opção "All branchs", dps finaliza
+ - aperta em Next, dps selecione a opção "All branchs", depois finaliza o envio para o repositorio remoto
 
 
 
