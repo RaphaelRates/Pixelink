@@ -45,7 +45,7 @@ Ou se preferir clique no botão direito no repositorio e clica na funçã de Pul
  - Clique no projeto com o botão direito do Mouse e vai até Team
  - Execute a função de commit para salvar as alterações pro repositrio local
  - perto do terminal, acesse a janela "Git starting" e coloque sua mensagem de commit
- - dps disso aperte em commit abaixo do TextField da "message commit"
+ - depois disso aperte em commit abaixo do TextField da "message commit"
 
 Após a modificação do repositorio local, hora de mandar para o repositorio remoto
 - Clique no projeto com o botão direito do Mouse e vai até Team
