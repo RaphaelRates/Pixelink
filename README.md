@@ -39,7 +39,7 @@ Toda vez que editar o codigo, usa a pratica de "Pull" com o versionamento, (que 
  - Clique no projeto com o botão direito do Mouse e vai até Team
  - Na sequencia, executa a função a função Pull
 
-Ou se preferir clique no botão direito no repositorio e clica na funçã de Pull
+Se preferir clique no botão direito no repositorio e clica na funçã de Pull
  - adicione as modificações ao indicie (uma area temporarea que prepara o envio das alterações pelo commit). Clique no projeto com o botão direito do Mouse e vai até Team
  - Na sequencia, executa a função "Add to index"
  - Clique no projeto com o botão direito do Mouse e vai até Team
