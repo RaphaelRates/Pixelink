@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
-import br.com.Pixelnik.entidades.Usuario;
+import br.com.Pixelink.entidades.Usuario;
 
 public class Cadastro extends JFrame {
 
@@ -67,11 +67,16 @@ public class Cadastro extends JFrame {
                 String senha = campoSenha.getText();
                 String confirmacao = campoSenhaISafe.getText();
 
-                if (!nome.isEmpty() && !email.isEmpty() && senha.isEmpty() && !confirmacao.isEmpty()&& (confirmacao.equals(senha)) &&(email.contains("@gmail.com") || email.contains("@hotmail.com"))) {
+                if (nome.isEmpty() || email.isEmpty() || senha.isEmpty() || confirmacao.isEmpty() ) {
+                	 JOptionPane.showMessageDialog(Cadastro.this, "Preencha todos os campos.");
+                } else if (!email.matches("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")){
+                	 JOptionPane.showMessageDialog(Cadastro.this, "formato de email invalido.");
+                }else if(!(confirmacao.equals(senha))) {
+                	 JOptionPane.showMessageDialog(Cadastro.this, "senha incorreta na confirmação"); 
+                } else  {
                 	escritaCSV("C:\\Users\\Raphael\\git\\Repository\\Pixelink\\src\\br\\com\\Pixelink\\data\\usuarios.csv", ";", new Usuario(nome,email,senha));
                     JOptionPane.showMessageDialog(Cadastro.this, "Formulário enviado:\nNome: " + nome + "\nE-mail: " + email);
-                } else {
-                    JOptionPane.showMessageDialog(Cadastro.this, "Preencha todos os campos.");
+                    setVisible(false);
                 }
             }
         });
@@ -86,17 +91,20 @@ public class Cadastro extends JFrame {
     
     public void escritaCSV(String caminho, String separador, Usuario novaConta) {
     	String filePath = caminho;
+    	if(Login.leituraCSV(caminho, separador, novaConta.getID(), novaConta.getEmail())) {
+    		try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
+                // Escreve os dados do usuário no formato CSV
+                String linha = novaConta.getName() + separador + novaConta.getID() + separador + novaConta.getEmail() + separador + novaConta.getSenha() + separador;
+                writer.write(linha);
+                writer.newLine();
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
-            // Escreve os dados do usuário no formato CSV
-            String linha = novaConta.getName() + separador + novaConta.getID() + separador + novaConta.getEmail() + separador + novaConta.getSenha() + separador;
-            writer.write(linha);
-            writer.newLine();
-
-            System.out.println("Dados do usuário foram escritos com sucesso no arquivo CSV.");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+                System.out.println("Dados do usuário foram escritos com sucesso no arquivo CSV.");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+    	}else {
+    		System.err.println("deu ruim se vira");
+    	}  
     }
 
     public static void main(String[] args) {

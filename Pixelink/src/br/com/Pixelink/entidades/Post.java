@@ -1,4 +1,4 @@
-package br.com.Pixelnik.entidades;
+package br.com.Pixelink.entidades;
 
 import java.util.List;
 

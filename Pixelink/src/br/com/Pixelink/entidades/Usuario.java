@@ -1,4 +1,4 @@
-package br.com.Pixelnik.entidades;
+package br.com.Pixelink.entidades;
 
 public class Usuario extends Conta{
 
@@ -6,7 +6,7 @@ public class Usuario extends Conta{
 	
 	public Usuario(String nome, String email, String senha) {
 		super(nome, email, senha);
-		this.ID = generateID(nome);
+		this.ID = generateID();
 		
 	}
 

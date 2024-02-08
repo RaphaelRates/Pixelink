@@ -54,8 +54,12 @@ public class Login extends JFrame {
                 String email = campoEmail.getText();
 
                 if (!nome.isEmpty() && !email.isEmpty() && (email.contains("@gmail.com") || email.contains("@hotmail.com"))) {
-                	leituraCSV("C:\\Users\\Raphael\\git\\Repository\\Pixelink\\src\\br\\com\\Pixelink\\data\\usuarios.csv", ";",nome, email);
-                    JOptionPane.showMessageDialog(Login.this, "Formulário enviado:\nNome: " + nome + "\nE-mail: " + email);
+                	boolean verificacao = leituraCSV("C:\\Users\\Raphael\\git\\Repository\\Pixelink\\src\\br\\com\\Pixelink\\data\\usuarios.csv", ";",nome, email);
+                	if(!verificacao) {
+                		System.out.println(verificacao);
+                		   JOptionPane.showMessageDialog(Login.this, "Formulário enviado:\nNome: " + nome + "\nE-mail: " + email);
+                	}
+                 
                 } else {
                     JOptionPane.showMessageDialog(Login.this, "Preencha todos os campos.");
                 }
@@ -70,7 +74,7 @@ public class Login extends JFrame {
         setVisible(true);
     }
     
-    public void leituraCSV(String caminho, String separador ,String username,String email) {
+    public static boolean leituraCSV(String caminho, String separador ,String username,String email) {
     	
 
     	
@@ -88,13 +92,16 @@ public class Login extends JFrame {
                 
                 // Faça o que desejar com os valores
                 String usuario = values[1];
-                if(usuario.equals(username)) {
-                	System.out.println("okokok");
+                String Email = values[2];
+                if(usuario.equals(username) || Email.equals(email)) {
+                	return false;
                 }
             }
             scanner.close();
+            return true;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+            return false;
         }
     }
 

@@ -1,4 +1,4 @@
-package br.com.Pixelnik.entidades;
+package br.com.Pixelink.entidades;
 
 import java.security.SecureRandom;
 import java.util.List;
@@ -66,11 +66,8 @@ public abstract class Conta {
 	
 //======================= funcionalidades ==============================
 	
-	public final String generateID(String username) {
+	public final String generateID() {
         // Verifica se o nome de usuário é válido
-        if (username == null || username.isEmpty()) {
-            throw new IllegalArgumentException("Nome de usuário inválido");
-        }
         
         // Define os caracteres possíveis para o conjunto aleatório
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -86,7 +83,7 @@ public abstract class Conta {
         }
         
         // Concatena "#" com o conjunto aleatório, o nome de usuário e um número aleatório
-        String id = "#" + randomString.toString() + username;
+        String id = "#" + randomString.toString();
         return id;
     }
 	
