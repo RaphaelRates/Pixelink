@@ -26,9 +26,7 @@ public class Login {
 	private JTextField emailField;
 	private JButton JBCadastro;
 
-	public Login() {
-		initialize();
-	}
+	public Login() {initialize();}
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -83,12 +81,12 @@ public class Login {
 		        String password = new String(passwordField.getPassword());
 
 		        if (username.isEmpty() || password.isEmpty() ) {
-		            Alerta.exibirAlerta("Por favor, verifique se os campos estão devidamente preenchidos.");
+		            Alert.exibirAlerta("Por favor, verifique se os campos estão devidamente preenchidos.");
 		        } else if(!(username.endsWith("@gmail.com") || username.endsWith("@hotmail.com") || (username.startsWith("#") && username.length() == 6)) || Character.isDigit(username.charAt(0))) {
-		        	Alerta.exibirAlerta("Formato de E-mail ou ID inválido inválido.");
+		        	Alert.exibirAlerta("Formato de E-mail ou ID inválido inválido.");
 		        }else if(Dados.verificarUsuarioExistente(username, password)){
 		        	Dados.Logar(username, password);
-		        	Alerta.exibirAlerta("logado com sucesso");
+		        	Alert.exibirAlerta("logado com sucesso");
 		        	System.exit(0);
 		        }
 		    }
@@ -109,11 +107,7 @@ public class Login {
 		IconLogo.setIcon(new ImageIcon(getClass().getResource("/Img/TelaLogin.png")));
 		panel.add(IconLogo);
 	}
-	public class Alerta {
-	    public static void exibirAlerta(String mensagem) {
-	        JOptionPane.showMessageDialog(null, mensagem, "Alerta", JOptionPane.WARNING_MESSAGE);
-	    }
-	}
+	
 	public JFrame getFrame() {
 		return frmPixelink;
 	}

@@ -5,6 +5,9 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
+
+import br.com.Pixelink.data.Dados;
+
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -14,10 +17,10 @@ import java.awt.event.ActionEvent;
 public class Cadastro {
 
     private JFrame frmPixelink;
-    private JTextField txtNome;
-    private JTextField textField_1;
+    private JTextField textEmail;
+    private JTextField textName;
     private JPasswordField passwordField;
-    private JPasswordField passwordField_1;
+    private JPasswordField passwordField_verificador;
 
     public Cadastro() {
         initialize();
@@ -58,9 +61,26 @@ public class Cadastro {
         JButton btnNewButton = new JButton("");
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Login voltarLogin = new Login();
-                voltarLogin.getFrame().setVisible(true); 
-                frmPixelink.dispose();
+            	String Email = textEmail.getText();
+            	String Name = textName.getText();
+            	String password = new String(passwordField.getPassword());
+            	String password_validator = new String(passwordField.getPassword());
+            	
+            	if(Name.isEmpty() || Email.isEmpty() || password.isEmpty() || password_validator.isEmpty()) {
+            		Alert.exibirAlerta("Preencha todos os campos obrigatórios");
+            	} else if(!(Email.endsWith("@gmail.com") || Email.endsWith("@hotmail.com")) || Character.isDigit(Email.charAt(0))) {
+		        	Alert.exibirAlerta("Formato de E-mail ou ID inválido inválido.");
+            	}else if(!password.equals(password_validator)) {
+            		Alert.exibirAlerta("Senha não verificada");
+            	}else if(Name.length() >= 8 || password.length() >=8) {
+            		Alert.exibirAlerta("Nome ou senha precisam no minimo de 8 caracteres");
+            	} else if(Dados.verificarUsuarioExistente(Email, password)) {
+            		Alert.exibirInformacao("cadastrado com sucesso co sucesso");
+            		 frmPixelink.dispose();
+            	}	
+//                Login voltarLogin = new Login();
+//                voltarLogin.getFrame().setVisible(true); 
+//                frmPixelink.dispose();
             }
         });
         btnNewButton.setIcon(new ImageIcon(getClass().getResource("/Img/BotãoCadastar.png")));
@@ -69,24 +89,24 @@ public class Cadastro {
         
         //Campos de dígito(Text Fields e Senhas)
         
-        txtNome = new JTextField();
-        txtNome.setToolTipText("");
-        txtNome.setBounds(345,245, 320,40);
-        panel.add(txtNome);
-        txtNome.setColumns(10);
+        textEmail = new JTextField();
+        textEmail.setToolTipText("");
+        textEmail.setBounds(345,245, 320,40);
+        panel.add(textEmail);
+        textEmail.setColumns(10);
         
         passwordField = new JPasswordField();
         passwordField.setBounds(345, 475, 320, 40);
         panel.add(passwordField);
         
-        passwordField_1 = new JPasswordField();
-        passwordField_1.setBounds(345, 580, 320, 40);
-        panel.add(passwordField_1);
+        passwordField_verificador = new JPasswordField();
+        passwordField_verificador.setBounds(345, 580, 320, 40);
+        panel.add(passwordField_verificador);
         
-        textField_1 = new JTextField();
-        textField_1.setBounds(345, 355, 320, 40);
-        panel.add(textField_1);
-        textField_1.setColumns(10);
+        textName = new JTextField();
+        textName.setBounds(345, 355, 320, 40);
+        panel.add(textName);
+        textName.setColumns(10);
         
         
         //Fundo CADASTRO
