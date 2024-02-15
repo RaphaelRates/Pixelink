@@ -12,6 +12,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
+import br.com.Pixelink.data.Dados;
+
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -20,8 +23,8 @@ public class Login {
 
 	private JFrame frmPixelink;
 	private JPasswordField passwordField;
-	private JTextField textField;
-	private JButton btnNewButton;
+	private JTextField emailField;
+	private JButton JBCadastro;
 
 	public Login() {
 		initialize();
@@ -42,7 +45,7 @@ public class Login {
 
 	private void initialize() {
 		frmPixelink = new JFrame();
-		frmPixelink.setExtendedState(JFrame.MAXIMIZED_BOTH);
+//		frmPixelink.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frmPixelink.setForeground(Color.BLACK);
 		frmPixelink.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/logo.png")));
 		frmPixelink.setTitle("Pixelink");
@@ -55,8 +58,8 @@ public class Login {
 		panel.setLayout(null);
 		frmPixelink.getContentPane().add(panel);
 
-		btnNewButton = new JButton("");
-		btnNewButton.addActionListener(new ActionListener() {
+		JBCadastro = new JButton("");
+		JBCadastro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Cadastro cadastro = new Cadastro();
 				cadastro.getFrame().setVisible(true);
@@ -64,43 +67,47 @@ public class Login {
 			}
 		});
 		
-		btnNewButton.setBounds(350, 500, 200, 50);
-		btnNewButton.setIcon(new ImageIcon(getClass().getResource("/Img/BotãoCadastar.png")));
-		panel.add(btnNewButton);
+		JBCadastro.setBounds(350, 500, 200, 50);
+		JBCadastro.setIcon(new ImageIcon(getClass().getResource("/Img/BotãoCadastar.png")));
+		panel.add(JBCadastro);
 
-		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setIcon(new ImageIcon(getClass().getResource("/Img/botão Entrar.png")));
-		btnNewButton_1.setBounds(580, 500, 200, 50);
-		panel.add(btnNewButton_1);
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton JButtonEntrar = new JButton("");
+		JButtonEntrar.setIcon(new ImageIcon(getClass().getResource("/Img/botão Entrar.png")));
+		
+		
+		JButtonEntrar.setBounds(580, 500, 200, 50);
+		panel.add(JButtonEntrar);
+		JButtonEntrar.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
-		        String username = textField.getText();
+		        String username = emailField.getText();
 		        String password = new String(passwordField.getPassword());
 
-		        if (username.isEmpty() || password.isEmpty()) {
-		            Alerta.exibirAlerta("Por favor, verifique se os campos de E-mail e Senha estão devidamente preenchidos.");
-		        } else {
-		            Cadastro cadastro = new Cadastro();
-		            cadastro.getFrame().setVisible(true);
-		            frmPixelink.dispose();
+		        if (username.isEmpty() || password.isEmpty() ) {
+		            Alerta.exibirAlerta("Por favor, verifique se os campos estão devidamente preenchidos.");
+		        } else if(!(username.endsWith("@gmail.com") || username.endsWith("@hotmail.com") || (username.startsWith("#") && username.length() == 6)) || Character.isDigit(username.charAt(0))) {
+		        	Alerta.exibirAlerta("Formato de E-mail ou ID inválido inválido.");
+		        }else if(Dados.verificarUsuarioExistente(username, password)){
+		        	Dados.Logar(username, password);
+		        	Alerta.exibirAlerta("logado com sucesso");
+		        	System.exit(0);
 		        }
 		    }
 		});
 
 
-		textField = new JTextField();
-		textField.setBounds(355, 293, 320, 40);
-		panel.add(textField);
-		textField.setColumns(10);
+		emailField = new JTextField();
+		emailField.setBounds(355, 293, 320, 40);
+		panel.add(emailField);
+		emailField.setColumns(10);
 
 		passwordField = new JPasswordField();
 		passwordField.setBounds(355, 400, 290, 40);
 		panel.add(passwordField);
 
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(0, 0, 1366, 768);
-		lblNewLabel.setIcon(new ImageIcon(getClass().getResource("/Img/TelaLogin.png")));
-		panel.add(lblNewLabel);
+		JLabel IconLogo = new JLabel("");
+		IconLogo.setBounds(0, 0, 1366, 768);
+		IconLogo.setIcon(new ImageIcon(getClass().getResource("/Img/TelaLogin.png")));
+		panel.add(IconLogo);
 	}
 	public class Alerta {
 	    public static void exibirAlerta(String mensagem) {

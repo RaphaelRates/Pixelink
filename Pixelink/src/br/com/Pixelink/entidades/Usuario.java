@@ -9,6 +9,11 @@ public class Usuario extends Conta{
 		this.ID = generateID();
 		
 	}
+	public Usuario(String nome, String email, String senha, String id) {
+		super(nome, email, senha);
+		this.ID = id;
+		
+	}
 
 	public String getID() {
 		return ID;

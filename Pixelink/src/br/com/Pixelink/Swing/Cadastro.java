@@ -8,6 +8,7 @@ import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 
 public class Cadastro {
@@ -24,10 +25,11 @@ public class Cadastro {
 
     private void initialize() {
         frmPixelink = new JFrame();
-        frmPixelink.setExtendedState(JFrame.MAXIMIZED_BOTH);
+//        frmPixelink.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frmPixelink.setTitle("Pixelink");
         frmPixelink.setBounds(100, 100, 1366, 768);
         frmPixelink.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frmPixelink.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/logo.png")));
         frmPixelink.getContentPane().setLayout(null);
         
         JPanel panel = new JPanel();

@@ -3,6 +3,8 @@ package br.com.Pixelink.entidades;
 import java.security.SecureRandom;
 import java.util.List;
 
+import br.com.Pixelink.data.Dados;
+
 public abstract class Conta {
 	
 	private String name;
@@ -10,7 +12,7 @@ public abstract class Conta {
 	private String senha;
 	
 	//LISTS
-	private List<PostVideo> Videos;
+	private List<PostImage> Imagens;
 	private List<PostText> Textos;
 	private List<Seguidor> seguidores;
 
@@ -52,8 +54,8 @@ public abstract class Conta {
 	}
 	
 
-	public List<PostVideo> getVideos() {
-		return Videos;
+	public List<PostImage> getVideos() {
+		return Imagens;
 	}
 
 	public List<PostText> getTextos() {
@@ -67,24 +69,19 @@ public abstract class Conta {
 //======================= funcionalidades ==============================
 	
 	public final String generateID() {
-        // Verifica se o nome de usuário é válido
-        
-        // Define os caracteres possíveis para o conjunto aleatório
-        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        // Define o tamanho do conjunto aleatório (neste caso, 5 caracteres)
-        int length = 5;
-        
-        // Gera o conjunto aleatório de caracteres
-        StringBuilder randomString = new StringBuilder();
-        SecureRandom secureRandom = new SecureRandom();
-        for (int i = 0; i < length; i++) {
-            int randomIndex = secureRandom.nextInt(characters.length());
-            randomString.append(characters.charAt(randomIndex));
-        }
-        
-        // Concatena "#" com o conjunto aleatório, o nome de usuário e um número aleatório
-        String id = "#" + randomString.toString();
+		String id;
+		do {
+			String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+	        StringBuilder randomString = new StringBuilder();
+	        SecureRandom secureRandom = new SecureRandom();
+	        for (int i = 0; i < 5; i++) {
+	            int randomIndex = secureRandom.nextInt(characters.length());
+	            randomString.append(characters.charAt(randomIndex));
+	        }
+	       id = "#" + randomString.toString();
+		} while (Dados.verificarIDExiste(id));
         return id;
+        
     }
 	
 }
