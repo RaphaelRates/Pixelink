@@ -71,7 +71,7 @@ public class Cadastro {
             	} else if(!(Email.endsWith("@gmail.com") || Email.endsWith("@hotmail.com")) || Character.isDigit(Email.charAt(0))) {
 		        	Alert.exibirAlerta("Formato de E-mail ou ID inválido inválido.");
             	}else if(!password.equals(password_validator)) {
-            		Alert.exibirAlerta("Senha não verificada");
+            		Alert.exibirAlerta("Senha incorreta");
             	}else if(Name.length() >= 8 || password.length() >=8) {
             		Alert.exibirAlerta("Nome ou senha precisam no minimo de 8 caracteres");
             	} else if(Dados.verificarUsuarioExistente(Email, password)) {
