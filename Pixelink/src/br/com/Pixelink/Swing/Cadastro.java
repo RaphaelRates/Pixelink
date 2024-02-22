@@ -7,6 +7,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 
 import br.com.Pixelink.data.Dados;
+import br.com.Pixelink.entidades.Usuario;
 
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
@@ -72,9 +73,10 @@ public class Cadastro {
 		        	Alert.exibirAlerta("Formato de E-mail ou ID inválido inválido.");
             	}else if(!password.equals(password_validator)) {
             		Alert.exibirAlerta("Senha incorreta");
-            	}else if(Name.length() >= 8 || password.length() >=8) {
+            	}else if(Name.length() < 8 || password.length() < 8) {
             		Alert.exibirAlerta("Nome ou senha precisam no minimo de 8 caracteres");
-            	} else if(Dados.verificarUsuarioExistente(Email, password)) {
+            	} else if(!Dados.verificarUsuarioExistente(Email, password)) {
+            		Dados.CriarConta(new Usuario(Name, Email, password));
             		Alert.exibirInformacao("cadastrado com sucesso co sucesso");
             		 frmPixelink.dispose();
             	}	

@@ -14,6 +14,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import br.com.Pixelink.data.Dados;
+import br.com.Pixelink.entidades.Usuario;
 
 import java.awt.Color;
 import java.awt.event.ActionListener;
@@ -32,8 +33,14 @@ public class Login {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Login window = new Login();
-					window.frmPixelink.setVisible(true);
+					Usuario logado = Dados.getLogado();
+					if (logado == null) {
+						Login window = new Login();
+						window.frmPixelink.setVisible(true);
+					}else{
+						FeedDeNoticias feed = new FeedDeNoticias(logado);
+			        	feed.getFrame().setVisible(true);
+					}	
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -86,8 +93,12 @@ public class Login {
 		        	Alert.exibirAlerta("Formato de E-mail ou ID inválido inválido.");
 		        }else if(Dados.verificarUsuarioExistente(username, password)){
 		        	Dados.Logar(username, password);
-		        	Alert.exibirAlerta("logado com sucesso");
-		        	System.exit(0);
+		        	Usuario logado = Dados.getLogado();
+		        	FeedDeNoticias feed = new FeedDeNoticias(logado);
+		        	feed.getFrame().setVisible(true);
+					frmPixelink.dispose();
+		        }else {
+		        	Alert.exibirAlerta("Senha ou conta incorreta.");
 		        }
 		    }
 		});

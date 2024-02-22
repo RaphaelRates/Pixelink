@@ -118,4 +118,32 @@ public class Dados {
 	            return usuarios;
 	        }
 	  }
+	  
+	  public static Usuario getLogado() {
+		  Usuario logado = null;
+		  String filePath = "src\\br\\com\\Pixelink\\data\\cache.csv"; // o caminho que ele irá verificar o arquivo csv onde estão guardados os usuarios
+	      File file = new File(filePath);
+	      try {
+	          Scanner scanner = new Scanner(file); //cria um escanner para escanear o arquino no diretorio
+	          while (scanner.hasNextLine()) {
+	                String line = scanner.nextLine();
+	                String[] values = line.split(";");
+	                String nome = values[0];
+	                String username = values[1];
+	                String email = values[2];
+	                String senha = values[3];
+	                if(nome.isEmpty() || username.isEmpty() || email.isEmpty() || senha.isEmpty()) {
+	                	return null;
+	                }
+	                logado = new Usuario(nome, email, senha, username);
+	            }
+	            scanner.close();
+	           
+	        } catch (FileNotFoundException e) {
+	            return null;
+	        }catch (ArrayIndexOutOfBoundsException e) {
+	        	return null;
+	        }
+	      return logado;
+	  }
 }
