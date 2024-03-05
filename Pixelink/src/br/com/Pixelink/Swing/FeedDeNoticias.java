@@ -20,8 +20,7 @@ public class FeedDeNoticias {
         frame = new JFrame();
         frame.setTitle("Pixelink");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLocationRelativeTo(null);
-
+        frame.setLocation(500,150);
 
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.setBackground(Color.LIGHT_GRAY);
