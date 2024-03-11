@@ -37,7 +37,7 @@ public class Dados {
 	            	criarArquivoCSV(new File(caminhoPasta, "PostText.csv"));
 	                criarArquivoCSV(new File(caminhoPasta, "seguindo.csv"));
 	                criarArquivoCSV(new File(caminhoPasta, "seguidores.csv"));
-	                criarArquivoCSV(new File(caminhoPasta, "noticicacoes.csv"));
+	                criarArquivoCSV(new File(caminhoPasta, "notificacoes.csv"));
 	            } else {
 	//                System.out.println("Não foi possível criar a pasta.");
 	            }
@@ -100,6 +100,9 @@ public class Dados {
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
+                if(line == "") {
+                	
+                }
                 String[] values = line.split(";");
                 String nome = values[0];
                 String username = values[1];

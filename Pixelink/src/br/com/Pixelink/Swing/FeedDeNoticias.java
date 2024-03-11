@@ -2,6 +2,8 @@ package br.com.Pixelink.Swing;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.geom.RoundRectangle2D;
+
 import javax.swing.*;
 
 import br.com.Pixelink.entidades.Usuario;
@@ -21,7 +23,8 @@ public class FeedDeNoticias {
         frame.setTitle("Pixelink");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocation(500,150);
-
+        frame.setMinimumSize(new Dimension(1280,720));
+        
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.setBackground(Color.LIGHT_GRAY);
 
@@ -43,13 +46,12 @@ public class FeedDeNoticias {
 
         mainPanel.add(sidePanel, BorderLayout.WEST);
         
-        frame.setSize(1080, 720);
+        
         
         
 
         frame.getContentPane().add(mainPanel);
     }
-    
 //    private void initialize() {
 //        frame = new JFrame();
 //        frame.setTitle("Pixelink");
@@ -98,12 +100,15 @@ public class FeedDeNoticias {
         button.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
+                frame.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR)); 
                 button.setIcon(new ImageIcon(scaledClickedImage));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
+            	frame.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR)); 
                 button.setIcon(new ImageIcon(scaledDefaultImage));
+                
             }
             
         });

@@ -1,7 +1,6 @@
 package br.com.Pixelink.entidades;
 
 import java.security.SecureRandom;
-import java.util.List;
 
 import br.com.Pixelink.data.Dados;
 
@@ -12,9 +11,7 @@ public abstract class Conta {
 	private String senha;
 	
 	//LISTS
-	private List<PostImage> Imagens;
-	private List<PostText> Textos;
-	private List<Seguidor> seguidores;
+	
 
 //================== CONTRUTORES =====================
 	public Conta(String name, String email, String senha) {
@@ -51,19 +48,6 @@ public abstract class Conta {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}
-	
-
-	public List<PostImage> getVideos() {
-		return Imagens;
-	}
-
-	public List<PostText> getTextos() {
-		return Textos;
-	}
-	
-	public List<Seguidor> getSeguidores() {
-		return seguidores;
 	}
 	
 //======================= funcionalidades ==============================

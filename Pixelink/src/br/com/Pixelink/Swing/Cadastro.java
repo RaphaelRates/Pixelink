@@ -12,6 +12,7 @@ import br.com.Pixelink.entidades.Usuario;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 
@@ -65,24 +66,25 @@ public class Cadastro {
             	String Email = textEmail.getText();
             	String Name = textName.getText();
             	String password = new String(passwordField.getPassword());
-            	String password_validator = new String(passwordField.getPassword());
+            	String password_validator = new String(passwordField_verificador.getPassword());
             	
             	if(Name.isEmpty() || Email.isEmpty() || password.isEmpty() || password_validator.isEmpty()) {
             		Alert.exibirAlerta("Preencha todos os campos obrigatórios");
             	} else if(!(Email.endsWith("@gmail.com") || Email.endsWith("@hotmail.com")) || Character.isDigit(Email.charAt(0))) {
 		        	Alert.exibirAlerta("Formato de E-mail ou ID inválido inválido.");
             	}else if(!password.equals(password_validator)) {
-            		Alert.exibirAlerta("Senha incorreta");
+            		Alert.exibirAlerta("As senhas não correspondem");
             	}else if(Name.length() < 8 || password.length() < 8) {
             		Alert.exibirAlerta("Nome ou senha precisam no minimo de 8 caracteres");
-            	} else if(!Dados.verificarUsuarioExistente(Email, password)) {
+            	} else if(Dados.verificarUsuarioExistente(Email, password)) {
+            		Alert.exibirAlerta("Usuário já existente");
+            	}else {
             		Dados.CriarConta(new Usuario(Name, Email, password));
-            		Alert.exibirInformacao("cadastrado com sucesso co sucesso");
-            		 frmPixelink.dispose();
-            	}	
-//                Login voltarLogin = new Login();
-//                voltarLogin.getFrame().setVisible(true); 
-//                frmPixelink.dispose();
+            		Alert.exibirInformacao("cadastrado com sucesso");
+            		Login voltarLogin = new Login();
+                    voltarLogin.getFrame().setVisible(true); 
+                    frmPixelink.dispose();
+            	}
             }
         });
         btnNewButton.setIcon(new ImageIcon(getClass().getResource("/Img/BotãoCadastar.png")));

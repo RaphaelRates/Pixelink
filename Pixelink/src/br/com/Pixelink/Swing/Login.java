@@ -51,6 +51,7 @@ public class Login {
 	private void initialize() {
 		frmPixelink = new JFrame();
 //		frmPixelink.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		
 		frmPixelink.setForeground(Color.BLACK);
 		frmPixelink.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Img/logo.png")));
 		frmPixelink.setTitle("Pixelink");
@@ -90,7 +91,7 @@ public class Login {
 		        if (username.isEmpty() || password.isEmpty() ) {
 		            Alert.exibirAlerta("Por favor, verifique se os campos estão devidamente preenchidos.");
 		        } else if(!(username.endsWith("@gmail.com") || username.endsWith("@hotmail.com") || (username.startsWith("#") && username.length() == 6)) || Character.isDigit(username.charAt(0))) {
-		        	Alert.exibirAlerta("Formato de E-mail ou ID inválido inválido.");
+		        	Alert.exibirAlerta("Formato de E-mail ou ID inválido inválido."+ username.length() + " "+ username.startsWith("#"));
 		        }else if(Dados.verificarUsuarioExistente(username, password)){
 		        	Dados.Logar(username, password);
 		        	Usuario logado = Dados.getLogado();

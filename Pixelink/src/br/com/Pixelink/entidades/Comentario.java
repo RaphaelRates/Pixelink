@@ -3,30 +3,35 @@ package br.com.Pixelink.entidades;
 public class Comentario {
 
 	private Integer id;
-	private Usuario usuario;
+	private String IdUsuario;
 	private String conteudo; 
 	
-	public Comentario(Integer id,Usuario usuario,String conteudo) {
-		this.id = id;
-		this.usuario = usuario;
+	public Comentario(Integer idPosts,String IdUsuario,String conteudo) {
+		this.id = idPosts;
+		this.IdUsuario = IdUsuario;
 		this.conteudo = conteudo;
 	}
-	public Comentario(Integer id,String conteudo) {
-		this.id = id;
+	public Comentario(Integer idPosts,String conteudo) {
+		this.id = idPosts;
 		this.conteudo = conteudo;
 	}
 	
-
 	public Integer getId() {
 		return id;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
+	public String getUsuario() {
+		return IdUsuario;
 	}
 
 	public String getConteudo() {
 		return conteudo;
+	}
+	public Integer getIdPots() {
+		return id;
+	}
+	public void setIdPots(Integer idPots) {
+		id = idPots;
 	}
 
 
