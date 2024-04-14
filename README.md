@@ -1,5 +1,5 @@
 # Pixelink
-trabalho em java que propoe simular uma rede social, inspirada nas mecanicas do facebook e no twitter.
+trabalho em java que entrega simular uma rede social, inspirada nas mecanicas do facebook e no twitter.
 
 ## Objetivo
 visa demosntrar como seria um prototipo de uma rede social em seu estado inicial, tendo apenas os recursos basicos de sistema de login, cadastro de nova conta, pesquisa de usuarios, postagens em formatos de texto/imagens, conexão de usuários, e edição de dados dos usuarios
